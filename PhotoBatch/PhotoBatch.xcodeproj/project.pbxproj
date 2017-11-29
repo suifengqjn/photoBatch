@@ -12,6 +12,7 @@
 		1D110E161FC7FE0F006D786E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D110E151FC7FE0F006D786E /* Assets.xcassets */; };
 		1D110E191FC7FE0F006D786E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D110E171FC7FE0F006D786E /* Main.storyboard */; };
 		1D110E1C1FC7FE0F006D786E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D110E1B1FC7FE0F006D786E /* main.m */; };
+		1D110E331FC98F86006D786E /* PBDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D110E321FC98F86006D786E /* PBDragView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		1D110E1A1FC7FE0F006D786E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D110E1B1FC7FE0F006D786E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D110E1D1FC7FE0F006D786E /* PhotoBatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoBatch.entitlements; sourceTree = "<group>"; };
+		1D110E311FC98F86006D786E /* PBDragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBDragView.h; sourceTree = "<group>"; };
+		1D110E321FC98F86006D786E /* PBDragView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBDragView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 		1D110E231FC7FFEC006D786E /* commomView */ = {
 			isa = PBXGroup;
 			children = (
+				1D110E311FC98F86006D786E /* PBDragView.h */,
+				1D110E321FC98F86006D786E /* PBDragView.m */,
 			);
 			path = commomView;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			files = (
 				1D110E141FC7FE0F006D786E /* ViewController.m in Sources */,
 				1D110E1C1FC7FE0F006D786E /* main.m in Sources */,
+				1D110E331FC98F86006D786E /* PBDragView.m in Sources */,
 				1D110E111FC7FE0F006D786E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
