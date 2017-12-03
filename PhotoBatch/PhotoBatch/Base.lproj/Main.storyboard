@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -741,21 +742,75 @@
                                                     <action selector="addFile:" target="XfG-lQ-9wD" id="4gR-6X-VYX"/>
                                                 </connections>
                                             </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rTY-fI-6Ks">
+                                                <rect key="frame" x="529" y="2" width="62" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="J6G-Gg-2aF"/>
+                                                    <constraint firstAttribute="width" constant="50" id="cmO-qy-D3P"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="guc-9G-PXo">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="StartAction:" target="XfG-lQ-9wD" id="K8L-9V-Yc9"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-Yt-9wB">
+                                                <rect key="frame" x="78" y="16" width="444" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" alignment="left" title="当前处理文件……" id="yJg-B1-hiY">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="rTY-fI-6Ks" firstAttribute="top" secondItem="ari-dW-N3C" secondAttribute="bottom" constant="10" id="S4s-Ot-Ey8"/>
                                             <constraint firstItem="4MP-wM-bRh" firstAttribute="leading" secondItem="qJs-Bw-gAD" secondAttribute="leading" constant="15" id="eca-Bd-YOb"/>
                                             <constraint firstItem="ari-dW-N3C" firstAttribute="top" secondItem="qJs-Bw-gAD" secondAttribute="top" id="grw-BK-Ker"/>
                                             <constraint firstItem="4MP-wM-bRh" firstAttribute="top" secondItem="ari-dW-N3C" secondAttribute="bottom" constant="10" id="hGF-bJ-KbH"/>
                                             <constraint firstAttribute="height" constant="50" id="nCc-CV-pQm"/>
+                                            <constraint firstAttribute="trailing" secondItem="rTY-fI-6Ks" secondAttribute="trailing" constant="15" id="rgb-jc-sCq"/>
                                             <constraint firstItem="ari-dW-N3C" firstAttribute="leading" secondItem="qJs-Bw-gAD" secondAttribute="leading" id="t1K-Uc-bYD"/>
+                                            <constraint firstItem="rTY-fI-6Ks" firstAttribute="leading" secondItem="HYl-Yt-9wB" secondAttribute="trailing" constant="15" id="u1q-kA-TOY"/>
+                                            <constraint firstItem="HYl-Yt-9wB" firstAttribute="leading" secondItem="4MP-wM-bRh" secondAttribute="trailing" constant="15" id="vQa-k7-cgr"/>
                                             <constraint firstAttribute="trailing" secondItem="ari-dW-N3C" secondAttribute="trailing" id="ySg-d4-3IQ"/>
+                                            <constraint firstItem="HYl-Yt-9wB" firstAttribute="centerY" secondItem="4MP-wM-bRh" secondAttribute="centerY" id="z2w-A6-vHo"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ivH-76-c7q" customClass="XCFlipView">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="350"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bW9-5a-naf">
+                                                <rect key="frame" x="18" y="288" width="74" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Kl3-Of-tld"/>
+                                                    <constraint firstAttribute="width" constant="70" id="lYY-sG-93e"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="check" title="重命名" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uJw-mK-ljH">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="reNameCheckBtnAction:" target="XfG-lQ-9wD" id="kIi-GC-vMe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bW9-5a-naf" firstAttribute="leading" secondItem="ivH-76-c7q" secondAttribute="leading" constant="20" id="2Mb-Gf-Phg"/>
+                                            <constraint firstItem="bW9-5a-naf" firstAttribute="top" secondItem="ivH-76-c7q" secondAttribute="top" constant="20" id="Uqx-K8-A3k"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qJs-Bw-gAD" secondAttribute="trailing" id="8Jz-RG-53p"/>
+                                    <constraint firstAttribute="trailing" secondItem="ivH-76-c7q" secondAttribute="trailing" id="PtE-Jg-StI"/>
                                     <constraint firstAttribute="bottom" secondItem="qJs-Bw-gAD" secondAttribute="bottom" id="Riu-TO-GRi"/>
+                                    <constraint firstItem="ivH-76-c7q" firstAttribute="leading" secondItem="CDh-Me-WLE" secondAttribute="leading" id="Zow-pu-xIV"/>
                                     <constraint firstItem="qJs-Bw-gAD" firstAttribute="leading" secondItem="CDh-Me-WLE" secondAttribute="leading" id="jU9-Yr-PBM"/>
+                                    <constraint firstItem="qJs-Bw-gAD" firstAttribute="top" secondItem="ivH-76-c7q" secondAttribute="bottom" id="jXI-LN-mGV"/>
+                                    <constraint firstItem="ivH-76-c7q" firstAttribute="top" secondItem="CDh-Me-WLE" secondAttribute="top" id="zjh-ac-4A1"/>
                                 </constraints>
                             </customView>
                         </subviews>
@@ -766,6 +821,12 @@
                             <constraint firstItem="CDh-Me-WLE" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="eGm-xm-3YE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dealingLabel" destination="HYl-Yt-9wB" id="vEu-JE-Y8z"/>
+                        <outlet property="dragView" destination="CDh-Me-WLE" id="IzW-WY-f3T"/>
+                        <outlet property="flipContetntView" destination="ivH-76-c7q" id="dmn-u0-hrR"/>
+                        <outlet property="reNameCheckBtn" destination="bW9-5a-naf" id="YTc-sS-2Zp"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

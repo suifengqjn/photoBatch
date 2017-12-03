@@ -13,9 +13,15 @@
 		1D110E191FC7FE0F006D786E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D110E171FC7FE0F006D786E /* Main.storyboard */; };
 		1D110E1C1FC7FE0F006D786E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D110E1B1FC7FE0F006D786E /* main.m */; };
 		1D110E331FC98F86006D786E /* PBDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D110E321FC98F86006D786E /* PBDragView.m */; };
+		1D6867F11FD2785A00F6D0D2 /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6867EF1FD2785A00F6D0D2 /* NSColor+Hex.m */; };
+		1D6867F51FD2786300F6D0D2 /* XCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6867F31FD2786300F6D0D2 /* XCFileManager.m */; };
+		1DF37BF31FCEA62000E423BE /* PBReNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF37BF21FCEA62000E423BE /* PBReNameView.m */; };
+		1DF37BFA1FCEABB000E423BE /* XCFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF37BF91FCEABB000E423BE /* XCFlipView.m */; };
+		C51CC9BF847100E72E196037 /* libPods-PhotoBatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF192A5870E43E706D97587B /* libPods-PhotoBatch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BD2421B7300A8AA5D179CEF /* Pods-PhotoBatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBatch/Pods-PhotoBatch.debug.xcconfig"; sourceTree = "<group>"; };
 		1D110E0C1FC7FE0F006D786E /* PhotoBatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D110E0F1FC7FE0F006D786E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D110E101FC7FE0F006D786E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,6 +34,17 @@
 		1D110E1D1FC7FE0F006D786E /* PhotoBatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoBatch.entitlements; sourceTree = "<group>"; };
 		1D110E311FC98F86006D786E /* PBDragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBDragView.h; sourceTree = "<group>"; };
 		1D110E321FC98F86006D786E /* PBDragView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBDragView.m; sourceTree = "<group>"; };
+		1D6867EF1FD2785A00F6D0D2 /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
+		1D6867F01FD2785A00F6D0D2 /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
+		1D6867F31FD2786300F6D0D2 /* XCFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileManager.m; sourceTree = "<group>"; };
+		1D6867F41FD2786300F6D0D2 /* XCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileManager.h; sourceTree = "<group>"; };
+		1DF37BF11FCEA62000E423BE /* PBReNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBReNameView.h; sourceTree = "<group>"; };
+		1DF37BF21FCEA62000E423BE /* PBReNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBReNameView.m; sourceTree = "<group>"; };
+		1DF37BF71FCEA83100E423BE /* PhotoBatch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoBatch.pch; sourceTree = "<group>"; };
+		1DF37BF81FCEABB000E423BE /* XCFlipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCFlipView.h; sourceTree = "<group>"; };
+		1DF37BF91FCEABB000E423BE /* XCFlipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCFlipView.m; sourceTree = "<group>"; };
+		88FA12B47A3759C80375143A /* Pods-PhotoBatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBatch/Pods-PhotoBatch.release.xcconfig"; sourceTree = "<group>"; };
+		EF192A5870E43E706D97587B /* libPods-PhotoBatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoBatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51CC9BF847100E72E196037 /* libPods-PhotoBatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +64,8 @@
 			children = (
 				1D110E0E1FC7FE0F006D786E /* PhotoBatch */,
 				1D110E0D1FC7FE0F006D786E /* Products */,
+				B1FED4074E2AD4A81417011E /* Pods */,
+				B766265EFBCF3ABA3DBDA81B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,12 +84,14 @@
 				1D110E101FC7FE0F006D786E /* AppDelegate.m */,
 				1D110E121FC7FE0F006D786E /* ViewController.h */,
 				1D110E131FC7FE0F006D786E /* ViewController.m */,
-				1D110E241FC7FFF1006D786E /* tools */,
+				1D6867F21FD2786300F6D0D2 /* Tools */,
+				1D6867EE1FD2785A00F6D0D2 /* Category */,
 				1D110E231FC7FFEC006D786E /* commomView */,
 				1D110E151FC7FE0F006D786E /* Assets.xcassets */,
 				1D110E171FC7FE0F006D786E /* Main.storyboard */,
 				1D110E1A1FC7FE0F006D786E /* Info.plist */,
 				1D110E1B1FC7FE0F006D786E /* main.m */,
+				1DF37BF71FCEA83100E423BE /* PhotoBatch.pch */,
 				1D110E1D1FC7FE0F006D786E /* PhotoBatch.entitlements */,
 			);
 			path = PhotoBatch;
@@ -80,15 +102,47 @@
 			children = (
 				1D110E311FC98F86006D786E /* PBDragView.h */,
 				1D110E321FC98F86006D786E /* PBDragView.m */,
+				1DF37BF11FCEA62000E423BE /* PBReNameView.h */,
+				1DF37BF21FCEA62000E423BE /* PBReNameView.m */,
+				1DF37BF81FCEABB000E423BE /* XCFlipView.h */,
+				1DF37BF91FCEABB000E423BE /* XCFlipView.m */,
 			);
 			path = commomView;
 			sourceTree = "<group>";
 		};
-		1D110E241FC7FFF1006D786E /* tools */ = {
+		1D6867EE1FD2785A00F6D0D2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1D6867EF1FD2785A00F6D0D2 /* NSColor+Hex.m */,
+				1D6867F01FD2785A00F6D0D2 /* NSColor+Hex.h */,
 			);
-			path = tools;
+			path = Category;
+			sourceTree = "<group>";
+		};
+		1D6867F21FD2786300F6D0D2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1D6867F31FD2786300F6D0D2 /* XCFileManager.m */,
+				1D6867F41FD2786300F6D0D2 /* XCFileManager.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B1FED4074E2AD4A81417011E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BD2421B7300A8AA5D179CEF /* Pods-PhotoBatch.debug.xcconfig */,
+				88FA12B47A3759C80375143A /* Pods-PhotoBatch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B766265EFBCF3ABA3DBDA81B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF192A5870E43E706D97587B /* libPods-PhotoBatch.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D110E201FC7FE0F006D786E /* Build configuration list for PBXNativeTarget "PhotoBatch" */;
 			buildPhases = (
+				1F798830DB7526AFDBC5C24A /* [CP] Check Pods Manifest.lock */,
 				1D110E081FC7FE0F006D786E /* Sources */,
 				1D110E091FC7FE0F006D786E /* Frameworks */,
 				1D110E0A1FC7FE0F006D786E /* Resources */,
+				BA880787B35744B0151AB641 /* [CP] Embed Pods Frameworks */,
+				52044DB27FEF9DFB73481E47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,15 +213,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F798830DB7526AFDBC5C24A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoBatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52044DB27FEF9DFB73481E47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBatch/Pods-PhotoBatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA880787B35744B0151AB641 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoBatch/Pods-PhotoBatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D110E081FC7FE0F006D786E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6867F51FD2786300F6D0D2 /* XCFileManager.m in Sources */,
+				1D6867F11FD2785A00F6D0D2 /* NSColor+Hex.m in Sources */,
+				1DF37BF31FCEA62000E423BE /* PBReNameView.m in Sources */,
 				1D110E141FC7FE0F006D786E /* ViewController.m in Sources */,
 				1D110E1C1FC7FE0F006D786E /* main.m in Sources */,
 				1D110E331FC98F86006D786E /* PBDragView.m in Sources */,
 				1D110E111FC7FE0F006D786E /* AppDelegate.m in Sources */,
+				1DF37BFA1FCEABB000E423BE /* XCFlipView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,14 +399,17 @@
 		};
 		1D110E211FC7FE0F006D786E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BD2421B7300A8AA5D179CEF /* Pods-PhotoBatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoBatch/PhotoBatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VN226642G5;
+				GCC_PREFIX_HEADER = PhotoBatch/PhotoBatch.pch;
 				INFOPLIST_FILE = PhotoBatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suifeng.PhotoBatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -302,14 +417,17 @@
 		};
 		1D110E221FC7FE0F006D786E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88FA12B47A3759C80375143A /* Pods-PhotoBatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoBatch/PhotoBatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VN226642G5;
+				GCC_PREFIX_HEADER = PhotoBatch/PhotoBatch.pch;
 				INFOPLIST_FILE = PhotoBatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suifeng.PhotoBatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -1,0 +1,29 @@
+//
+//  PhotoBatch.pch
+//  PhotoBatch
+//
+//  Created by qianjn on 2017/11/29.
+//  Copyright © 2017年 SF. All rights reserved.
+//
+
+#ifndef PhotoBatch_pch
+#define PhotoBatch_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PhotoBatch_pch */
+
+
+
+#define FMFont(x) [NSFont systemFontOfSize:x]
+
+
+
+#import "NSColor+Hex.h"
+#import "XCFileManager.h"
+
+#import "XCFlipView.h"
+
+
+#import "PureLayout.h"
