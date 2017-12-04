@@ -14,10 +14,7 @@
 
 @property (nonatomic, strong) PBReNameView *reNameView;
 
-
-
-@property (nonatomic, strong) NSArray *filePaths; //选择的文件路径
-
+@property (nonatomic, strong) NSArray *folderPaths; //选择的文件路径
 
 @property (weak) IBOutlet PBDragView *dragView;
 
@@ -73,7 +70,7 @@
     
     
     NSMutableArray *allFiles = [NSMutableArray new];
-    for (NSString *docuPath in self.filePaths) {
+    for (NSString *docuPath in self.folderPaths) {
         NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
         for (NSString *filename in files) {
             [allFiles addObject:[NSString stringWithFormat:@"%@/%@", docuPath, filename]];
@@ -82,7 +79,7 @@
     if (allFiles.count == 0) {
         return;
     }
-    NSString *resultFilePath = [NSString stringWithFormat:@"%@/%@", self.filePaths.firstObject, @"result"];
+    NSString *resultFilePath = [NSString stringWithFormat:@"%@/%@", self.folderPaths.firstObject, @"result"];
     
     NSError *err = nil;
     [XCFileManager createDirectoryAtPath:resultFilePath error:&err];
@@ -139,6 +136,7 @@
     self.dealingLabel.stringValue = [filepaths.firstObject description];
     
     NSMutableArray *arr = [NSMutableArray new];
+    // 对文件夹路径进行处理
     for (NSString *path in filepaths) {
         if ([[path description] hasPrefix:@"file:///"]) {
             NSString *newpath = [[path description] substringFromIndex:7];
@@ -158,28 +156,20 @@
         }
     }
     
-    self.filePaths = arr;
-
+    self.folderPaths = arr;
+    
     NSMutableArray *allFiles = [NSMutableArray new];
-    for (NSString *docuPath in self.filePaths) {
+    for (NSString *docuPath in self.folderPaths) { // 遍历所有文件夹 获取所有文件个数
         NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
         [allFiles addObjectsFromArray:files];
     }
-    
+
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:@"文件获取成功"];
     [alert setInformativeText:[NSString stringWithFormat:@"文件总数：%ld 个", allFiles.count]];
     [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
-        
     }];
-    
-    
-    
 }
-
-
-
-
 
 
 #pragma mark - PBDragViewDelegate
