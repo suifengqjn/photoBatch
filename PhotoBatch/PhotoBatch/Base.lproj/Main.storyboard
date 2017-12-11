@@ -822,7 +822,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dealingLabel" destination="HYl-Yt-9wB" id="vEu-JE-Y8z"/>
+                        <outlet property="dealingLabel" destination="HYl-Yt-9wB" id="XrQ-Mw-7oj"/>
                         <outlet property="dragView" destination="CDh-Me-WLE" id="IzW-WY-f3T"/>
                         <outlet property="flipContetntView" destination="ivH-76-c7q" id="dmn-u0-hrR"/>
                         <outlet property="reNameCheckBtn" destination="bW9-5a-naf" id="YTc-sS-2Zp"/>

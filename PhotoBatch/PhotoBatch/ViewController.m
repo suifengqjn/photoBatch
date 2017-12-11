@@ -10,11 +10,23 @@
 #import "PBReNameView.h"
 #import "XCFlipView.h"
 #import "PBDragView.h"
+#import "ViewController+ReName.h"
+
+
+typedef NS_ENUM(NSInteger, ActionType) {
+    ActionTypeReName = 1,
+    ActionTypeCheckRepeat,
+};
+
+
 @interface ViewController()<PBDragViewDelegate>
 
-@property (nonatomic, strong) PBReNameView *reNameView;
 
-@property (nonatomic, strong) NSArray *folderPaths; //选择的文件路径
+@property (nonatomic, assign) ActionType actionType;
+
+@property (nonatomic, strong, readwrite) PBReNameView *reNameView;
+
+@property (nonatomic, strong, readwrite) NSArray *folderPaths; //选择的文件路径
 
 @property (weak) IBOutlet PBDragView *dragView;
 
@@ -22,7 +34,6 @@
 
 @property (weak) IBOutlet NSButton *reNameCheckBtn;
 
-@property (weak) IBOutlet NSTextField *dealingLabel;
 
 @end
 
@@ -68,54 +79,18 @@
 // 开始处理
 - (IBAction)StartAction:(NSButton *)sender {
     
-    
-    NSMutableArray *allFiles = [NSMutableArray new];
-    for (NSString *docuPath in self.folderPaths) {
-        NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
-        for (NSString *filename in files) {
-            [allFiles addObject:[NSString stringWithFormat:@"%@/%@", docuPath, filename]];
-        }
-    }
-    if (allFiles.count == 0) {
-        return;
-    }
-    NSString *resultFilePath = [NSString stringWithFormat:@"%@/%@", self.folderPaths.firstObject, @"result"];
-    
-    NSError *err = nil;
-    [XCFileManager createDirectoryAtPath:resultFilePath error:&err];
-    NSString *prefixName = _reNameView.prefixInput.stringValue;
-    if (!prefixName || prefixName.length == 0) {
-        prefixName = @"img_";
-    }
-    NSString *suffixName = _reNameView.suffixInput.stringValue;
-    if(!suffixName || suffixName.length == 0) {
-        suffixName = @"";
-    }
-    NSInteger index = 1;
-    NSString *suffix = @"";
-    for (NSString *path in allFiles) {
-//        // 如果遇到 没有文件名的文件，直接过滤
-        if ([path componentsSeparatedByString:@"."].count < 2) {
-            continue;
-        }
-        if (suffixName.length == 0) {
-            suffix = [[path componentsSeparatedByString:@"."].lastObject description];
-        } else {
-            suffix = suffixName;
-        }
-        self.dealingLabel.stringValue = [path description];
-        
-        NSString *movePath = [NSString stringWithFormat:@"%@/%@%ld.%@", resultFilePath, prefixName, index,suffix];
-        if (_reNameView.checkSaveBtn.state == 1) {
-           [XCFileManager moveItemAtPath:path toPath:movePath overwrite:NO];
-        } else {
-            [XCFileManager moveItemAtPath:path toPath:movePath overwrite:YES];
-        }
-        
-        index ++;
+    switch (_actionType) {
+        case ActionTypeReName:
+            [self reNameAction];
+            break;
+        case ActionTypeCheckRepeat:
+             
+            break;
+        default:
+            break;
     }
     
-    self.dealingLabel.stringValue = @"处理完成";
+    
     
 }
 
@@ -156,7 +131,7 @@
         }
     }
     
-    self.folderPaths = arr;
+    self.folderPaths = filepaths;
     
     NSMutableArray *allFiles = [NSMutableArray new];
     for (NSString *docuPath in self.folderPaths) { // 遍历所有文件夹 获取所有文件个数

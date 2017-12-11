@@ -15,8 +15,11 @@
 		1D110E331FC98F86006D786E /* PBDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D110E321FC98F86006D786E /* PBDragView.m */; };
 		1D6867F11FD2785A00F6D0D2 /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6867EF1FD2785A00F6D0D2 /* NSColor+Hex.m */; };
 		1D6867F51FD2786300F6D0D2 /* XCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6867F31FD2786300F6D0D2 /* XCFileManager.m */; };
+		1DC0BD851FDE656000C8F9E5 /* ViewController+ReName.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0BD841FDE656000C8F9E5 /* ViewController+ReName.m */; };
+		1DC0BD881FDE79BA00C8F9E5 /* ViewController+CheckRepeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0BD871FDE79BA00C8F9E5 /* ViewController+CheckRepeat.m */; };
 		1DF37BF31FCEA62000E423BE /* PBReNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF37BF21FCEA62000E423BE /* PBReNameView.m */; };
 		1DF37BFA1FCEABB000E423BE /* XCFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF37BF91FCEABB000E423BE /* XCFlipView.m */; };
+		1DF4FF4D1FD91BCD0095CAE2 /* PHCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4FF4C1FD91BCD0095CAE2 /* PHCompare.m */; };
 		C51CC9BF847100E72E196037 /* libPods-PhotoBatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF192A5870E43E706D97587B /* libPods-PhotoBatch.a */; };
 /* End PBXBuildFile section */
 
@@ -38,11 +41,17 @@
 		1D6867F01FD2785A00F6D0D2 /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
 		1D6867F31FD2786300F6D0D2 /* XCFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileManager.m; sourceTree = "<group>"; };
 		1D6867F41FD2786300F6D0D2 /* XCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileManager.h; sourceTree = "<group>"; };
+		1DC0BD831FDE656000C8F9E5 /* ViewController+ReName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+ReName.h"; sourceTree = "<group>"; };
+		1DC0BD841FDE656000C8F9E5 /* ViewController+ReName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+ReName.m"; sourceTree = "<group>"; };
+		1DC0BD861FDE79BA00C8F9E5 /* ViewController+CheckRepeat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+CheckRepeat.h"; sourceTree = "<group>"; };
+		1DC0BD871FDE79BA00C8F9E5 /* ViewController+CheckRepeat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+CheckRepeat.m"; sourceTree = "<group>"; };
 		1DF37BF11FCEA62000E423BE /* PBReNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBReNameView.h; sourceTree = "<group>"; };
 		1DF37BF21FCEA62000E423BE /* PBReNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBReNameView.m; sourceTree = "<group>"; };
 		1DF37BF71FCEA83100E423BE /* PhotoBatch.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoBatch.pch; sourceTree = "<group>"; };
 		1DF37BF81FCEABB000E423BE /* XCFlipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCFlipView.h; sourceTree = "<group>"; };
 		1DF37BF91FCEABB000E423BE /* XCFlipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCFlipView.m; sourceTree = "<group>"; };
+		1DF4FF4B1FD91BCD0095CAE2 /* PHCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHCompare.h; sourceTree = "<group>"; };
+		1DF4FF4C1FD91BCD0095CAE2 /* PHCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHCompare.m; sourceTree = "<group>"; };
 		88FA12B47A3759C80375143A /* Pods-PhotoBatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBatch/Pods-PhotoBatch.release.xcconfig"; sourceTree = "<group>"; };
 		EF192A5870E43E706D97587B /* libPods-PhotoBatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoBatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +93,10 @@
 				1D110E101FC7FE0F006D786E /* AppDelegate.m */,
 				1D110E121FC7FE0F006D786E /* ViewController.h */,
 				1D110E131FC7FE0F006D786E /* ViewController.m */,
+				1DC0BD831FDE656000C8F9E5 /* ViewController+ReName.h */,
+				1DC0BD841FDE656000C8F9E5 /* ViewController+ReName.m */,
+				1DC0BD861FDE79BA00C8F9E5 /* ViewController+CheckRepeat.h */,
+				1DC0BD871FDE79BA00C8F9E5 /* ViewController+CheckRepeat.m */,
 				1D6867F21FD2786300F6D0D2 /* Tools */,
 				1D6867EE1FD2785A00F6D0D2 /* Category */,
 				1D110E231FC7FFEC006D786E /* commomView */,
@@ -124,6 +137,8 @@
 			children = (
 				1D6867F31FD2786300F6D0D2 /* XCFileManager.m */,
 				1D6867F41FD2786300F6D0D2 /* XCFileManager.h */,
+				1DF4FF4B1FD91BCD0095CAE2 /* PHCompare.h */,
+				1DF4FF4C1FD91BCD0095CAE2 /* PHCompare.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -270,12 +285,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6867F51FD2786300F6D0D2 /* XCFileManager.m in Sources */,
+				1DC0BD881FDE79BA00C8F9E5 /* ViewController+CheckRepeat.m in Sources */,
 				1D6867F11FD2785A00F6D0D2 /* NSColor+Hex.m in Sources */,
+				1DF4FF4D1FD91BCD0095CAE2 /* PHCompare.m in Sources */,
 				1DF37BF31FCEA62000E423BE /* PBReNameView.m in Sources */,
 				1D110E141FC7FE0F006D786E /* ViewController.m in Sources */,
 				1D110E1C1FC7FE0F006D786E /* main.m in Sources */,
 				1D110E331FC98F86006D786E /* PBDragView.m in Sources */,
 				1D110E111FC7FE0F006D786E /* AppDelegate.m in Sources */,
+				1DC0BD851FDE656000C8F9E5 /* ViewController+ReName.m in Sources */,
 				1DF37BFA1FCEABB000E423BE /* XCFlipView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
