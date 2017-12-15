@@ -792,14 +792,24 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <connections>
-                                                    <action selector="reNameCheckBtnAction:" target="XfG-lQ-9wD" id="kIi-GC-vMe"/>
-                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8dX-b5-LJj">
+                                                <rect key="frame" x="17" y="228" width="76" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="72" id="uIp-vt-TnI"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="check" title="检查重复" bezelStyle="regularSquare" imagePosition="left" inset="2" id="qnv-ne-nsn">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bW9-5a-naf" firstAttribute="leading" secondItem="ivH-76-c7q" secondAttribute="leading" constant="20" id="2Mb-Gf-Phg"/>
+                                            <constraint firstItem="8dX-b5-LJj" firstAttribute="height" secondItem="bW9-5a-naf" secondAttribute="height" id="4Mp-y9-TCb"/>
+                                            <constraint firstItem="8dX-b5-LJj" firstAttribute="top" secondItem="bW9-5a-naf" secondAttribute="bottom" constant="20" id="QmM-Vm-6H6"/>
                                             <constraint firstItem="bW9-5a-naf" firstAttribute="top" secondItem="ivH-76-c7q" secondAttribute="top" constant="20" id="Uqx-K8-A3k"/>
+                                            <constraint firstItem="8dX-b5-LJj" firstAttribute="centerX" secondItem="bW9-5a-naf" secondAttribute="centerX" id="YZD-mM-Uj4"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -822,6 +832,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CheckRepeatBtn" destination="8dX-b5-LJj" id="deN-BQ-KP4"/>
                         <outlet property="dealingLabel" destination="HYl-Yt-9wB" id="XrQ-Mw-7oj"/>
                         <outlet property="dragView" destination="CDh-Me-WLE" id="IzW-WY-f3T"/>
                         <outlet property="flipContetntView" destination="ivH-76-c7q" id="dmn-u0-hrR"/>

@@ -10,9 +10,8 @@
 #import "PBReNameView.h"
 #import "XCFlipView.h"
 #import "PBDragView.h"
-#import "ViewController+ReName.h"
-
-
+#import "PBCheckRepeatView.h"
+#import "PHCompare.h"
 typedef NS_ENUM(NSInteger, ActionType) {
     ActionTypeReName = 1,
     ActionTypeCheckRepeat,
@@ -25,6 +24,7 @@ typedef NS_ENUM(NSInteger, ActionType) {
 @property (nonatomic, assign) ActionType actionType;
 
 @property (nonatomic, strong, readwrite) PBReNameView *reNameView;
+@property (nonatomic, strong, readwrite) PBCheckRepeatView *checkRepeatView;
 
 @property (nonatomic, strong, readwrite) NSArray *folderPaths; //选择的文件路径
 
@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, ActionType) {
 
 @property (weak) IBOutlet NSButton *reNameCheckBtn;
 
+@property (weak) IBOutlet NSButton *CheckRepeatBtn;
 
 @end
 
@@ -49,6 +50,18 @@ typedef NS_ENUM(NSInteger, ActionType) {
     _reNameView = [[PBReNameView alloc] init];
     _reNameView.hidden = YES;
     [_flipContetntView addSubview:_reNameView];
+    
+    
+    _checkRepeatView = [[PBCheckRepeatView alloc] init];
+    _checkRepeatView.hidden = YES;
+    [_flipContetntView addSubview:_checkRepeatView];
+    
+    
+    
+    
+    [_reNameCheckBtn setAction:@selector(reNameCheckBtnAction:)];
+    [_CheckRepeatBtn setAction:@selector(checkRepeatAction:)];
+    
 }
 
 - (IBAction)addFile:(NSButton *)sender {
@@ -76,35 +89,8 @@ typedef NS_ENUM(NSInteger, ActionType) {
     
 }
 
-// 开始处理
-- (IBAction)StartAction:(NSButton *)sender {
-    
-    switch (_actionType) {
-        case ActionTypeReName:
-            [self reNameAction];
-            break;
-        case ActionTypeCheckRepeat:
-             
-            break;
-        default:
-            break;
-    }
-    
-    
-    
-}
 
-- (IBAction)reNameCheckBtnAction:(NSButton *)sender {
-    
-    if (sender.state == 1) {
-        //[_flipContetntView addSubview:_reNameView];
-        _reNameView.hidden = NO;
-    } else {
-        //[_reNameView removeFromSuperview];
-        _reNameView.hidden = YES;
-    }
-    
-}
+#pragma mark - action
 
 - (void)dealFiles:(NSArray *)filepaths
 {
@@ -138,7 +124,7 @@ typedef NS_ENUM(NSInteger, ActionType) {
         NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
         [allFiles addObjectsFromArray:files];
     }
-
+    
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:@"文件获取成功"];
     [alert setInformativeText:[NSString stringWithFormat:@"文件总数：%ld 个", allFiles.count]];
@@ -146,6 +132,186 @@ typedef NS_ENUM(NSInteger, ActionType) {
     }];
 }
 
+- (void)reNameCheckBtnAction:(NSButton *)sender {
+    
+    if (sender.state == 1) {
+        [self clearActionView];
+        _reNameView.hidden = NO;
+        sender.state = 1;
+        _actionType = ActionTypeReName;
+    } else {
+        _reNameView.hidden = YES;
+        [self initActionType];
+    }
+    
+}
+
+- (void)checkRepeatAction:(NSButton *)sender
+{
+    if (sender.state == 1) {
+        [self clearActionView];
+        _checkRepeatView.hidden = NO;
+        sender.state = 1;
+        _actionType = ActionTypeCheckRepeat;
+    } else {
+        _checkRepeatView.hidden = YES;
+        [self initActionType];
+    }
+}
+
+
+- (void)clearActionView
+{
+    _reNameCheckBtn.state = 0;
+    _reNameView.hidden = YES;
+    
+    _CheckRepeatBtn.state = 0;
+    _checkRepeatView.hidden = YES;
+    
+}
+
+- (void)initActionType
+{
+    _actionType = 0;
+}
+
+
+#pragma mark -- start Action
+- (IBAction)StartAction:(NSButton *)sender {
+    
+    switch (_actionType) {
+        case ActionTypeReName:
+            [self reNameAction];
+            break;
+        case ActionTypeCheckRepeat:
+            [self checkRepeatAction];
+            break;
+        default:
+            break;
+    }
+
+}
+
+- (void)reNameAction
+{
+    NSMutableArray *allFiles = [NSMutableArray new];
+    for (NSString *docuPath in self.folderPaths) {
+        NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
+        for (NSString *filename in files) {
+            [allFiles addObject:[NSString stringWithFormat:@"%@/%@", docuPath, filename]];
+        }
+    }
+    if (allFiles.count == 0) {
+        return;
+    }
+    NSString *resultFilePath = [NSString stringWithFormat:@"%@/%@", self.folderPaths.firstObject, @"result"];
+    
+    NSError *err = nil;
+    [XCFileManager createDirectoryAtPath:resultFilePath error:&err];
+    NSString *prefixName = self.reNameView.prefixInput.stringValue;
+    if (!prefixName || prefixName.length == 0) {
+        prefixName = @"img_";
+    }
+    NSString *suffixName = self.reNameView.suffixInput.stringValue;
+    if(!suffixName || suffixName.length == 0) {
+        suffixName = @"";
+    }
+    NSInteger index = 0;
+    NSString *suffix = @"";
+    for (NSString *path in allFiles) {
+        //        // 如果遇到 没有文件名的文件，直接过滤
+        if ([path componentsSeparatedByString:@"."].count < 2) {
+            continue;
+        }
+        if (suffixName.length == 0) {
+            suffix = [[path componentsSeparatedByString:@"."].lastObject description];
+        } else {
+            suffix = suffixName;
+        }
+        self.dealingLabel.stringValue = [path description];
+        
+        NSString *movePath = [NSString stringWithFormat:@"%@/%@%ld.%@", resultFilePath, prefixName, index,suffix];
+        if (self.reNameView.checkSaveBtn.state == 1) {
+            [XCFileManager moveItemAtPath:path toPath:movePath overwrite:NO];
+        } else {
+            [XCFileManager moveItemAtPath:path toPath:movePath overwrite:YES];
+        }
+        
+        index ++;
+    }
+    
+    self.dealingLabel.stringValue = @"处理完成";
+}
+
+
+- (void)checkRepeatAction
+{
+    NSMutableArray *allFiles = [NSMutableArray new];
+    for (NSString *docuPath in self.folderPaths) {
+        NSArray *files = [XCFileManager listFilesInDirectoryAtPath:docuPath deep:NO];//这里遍历得到的只是文件名
+        for (NSString *filename in files) {
+            if (![filename hasSuffix:@"Store"]) {
+                [allFiles addObject:[NSString stringWithFormat:@"%@/%@", docuPath, filename]];
+            }
+        }
+    }
+    if (allFiles.count == 0) {
+        return;
+    }
+    NSMutableArray *totalArr = [NSMutableArray array];
+    
+    __weak __typeof(self)weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        for (NSString *filePath in allFiles) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.dealingLabel.stringValue = [NSString stringWithFormat:@"处理文件：%@", filePath];
+            });
+            if (totalArr.count == 0) {
+                NSMutableArray *arr = [NSMutableArray array];
+                [arr addObject:filePath];
+                [totalArr addObject:arr];
+            } else {
+                
+                NSInteger groupCount = [[totalArr mutableCopy] count];
+                for (int i = 0; i < groupCount; i++) {
+                    NSMutableArray *arr = totalArr[i];
+                    NSImage *imagea = [[NSImage alloc] initWithContentsOfFile:arr.firstObject];
+                    NSImage *imageb = [[NSImage alloc] initWithContentsOfFile:filePath];
+                    Similarity simi = [PHCompare getSimilarityValueWithImgA:imagea ImgB:imageb];
+                    if (simi >= 0.9) { //相似度比较接近
+                        [arr addObject:filePath];
+                        break;
+                    } else {
+                        if (i == [[totalArr mutableCopy] count] - 1) {  //已经遍历到最后一组，还没有找到相似图片，新建一组
+                            NSMutableArray *arr = [NSMutableArray array];
+                            [arr addObject:filePath];
+                            @synchronized(totalArr) {
+                                [totalArr addObject:arr];
+                            }
+                            break;
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+        
+        NSMutableArray *repeatArr = [NSMutableArray new];
+        for (NSArray *arr in totalArr) {
+            if (arr.count > 1) {
+                [repeatArr addObject:arr];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.dealingLabel.stringValue = [NSString stringWithFormat:@"处理完成"];
+            [self.checkRepeatView buildUIWithImageArr:repeatArr];
+        });
+        
+    });
+
+}
 
 #pragma mark - PBDragViewDelegate
 
